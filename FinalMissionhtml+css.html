@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Mission Html</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css" rel="stylesheet" />
+    <style>
+        h1 {
+            color: lightcoral;
+            text-align: center;
+        }
+        
+        h3 {
+            color: rgb(93, 167, 167);
+        }
+        
+        table,
+        td,
+        th {
+            border: 3px dotted rgb(93, 167, 167);
+        }
+        
+        thead {
+            color: rgb(133, 57, 70);
+        }
+        
+        tbody {
+            color: rgb(240, 229, 229);
+            background-color: lightcoral;
+        }
+        
+        table {
+            width: 400px;
+        }
+        
+        label {
+            color: lightcoral;
+        }
+        
+        form {
+            border: 2px solid peru;
+            width: 100%;
+            height: 250px;
+            background-color: rgb(93, 167, 167);
+            padding: 10px;
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            margin: 5px;
+        }
+        /* .form-control input {
+            margin-left: 20px;
+        } */
+        /* select {
+            margin-left: 20px;
+        } */
+        /* .form-control input {
+            height: 20px;
+            width: 200px;
+            border-radius: 5px;
+        } */
+        /* .form-control select {
+            height: 30px;
+            width: 200px;
+            border-radius: 5px; */
+        
+        #btn {
+            font-weight: bolder;
+            width: 100px;
+            height: 40px;
+            border-radius: 50px;
+            float: right;
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student list table and add form</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <table id="tb">
+                    <h3>Student list</h3>
+                    <thead>
+                        <th>Name</th>
+                        <th>Grade</th>
+                        <th>Roll</th>
+                        <!-- <th>Gender</th> -->
+                    </thead>
+                    <tbody class="tb">
+                        <tr>
+                            <td>Mg Myo Aung</td>
+                            <td>Grade 5</td>
+                            <td>11</td>
+                            <!-- <td>Boy</td> -->
+                        </tr>
+                        <tr>
+                            <td>Ma Aye Myat</td>
+                            <td>Grade 3</td>
+                            <td>2</td>
+                            <!-- <td>Girl</td> -->
+                        </tr>
+                        <tr>
+                            <td>Mg Thurein</td>
+                            <td>Grade 6</td>
+                            <td>12</td>
+                            <!-- <td>Boy</td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>Student add form</h3>
+
+                <form action="#" id="fm" method="get">
+                    <div class="form-control">
+                        <label for="sname">Name</label>
+                        <input type="text" class="ms-4 ff1" name="sname" id="sname">
+
+                    </div>
+                    <div class="form-control">
+                        <label for="sgrade">Grade</label>
+                        <input type="text" class="ms-4 ff2" name="sgrade" id="sgrade">
+                    </div>
+                    <div class="form-control">
+                        <label for="sroll">Roll No</label>
+                        <input type="text" class="ms-3 ff3" name="sroll" id="sroll">
+
+                    </div>
+
+                    <input type="button" id="btn" value="Add">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    let tb = document.getElementById('tb');
+    let fm = document.getElementById('fm');
+    let i;
+    let butt = document.getElementById('btn');
+    let tableBody = document.getElementsByClassName('tb')[0];
+    let stuList = () => {
+        let tableRow = document.createElement('tr');
+        for (i = 1; i <= 3; i++) {
+            let tableData = document.createElement('td');
+            let inputTag = document.getElementsByClassName('ff' + i)[0];
+            let inputValue = inputTag.value;
+            tableData.append(inputValue);
+            tableRow.append(tableData);
+            inputTag.value = "";
+        }
+        tableBody.append(tableRow);
+        tb.append(tableBody);
+
+    };
+
+    butt.addEventListener('click', stuList);
+</script>
+
+</html>
